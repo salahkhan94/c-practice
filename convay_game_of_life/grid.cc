@@ -25,15 +25,20 @@ void grid::randomize() {
     const int cutoff = RAND_MAX/factor;
     time_t now;
     time(&now);
-    //srand(now);
-
+    srand(now);
+    int tot = 0;
+    int on = 0;
     for (int row = 1; row < rowmax; ++row) {
         for (int column = 1; column < colmax; ++column) {
+            tot++;
             if (rand()/cutoff == 0) {
+                on++;
                 create(row, column);
             }
         }
     }
+    std::cout << "tot : " << tot << " live : " << on << std::endl;
+    std::cout << "percentage on : " << float(on)/float(tot)*100 << std::endl;
 }
 
 // Will the cell at (row, column) survive to the next generation?
