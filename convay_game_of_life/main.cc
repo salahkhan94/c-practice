@@ -1,14 +1,14 @@
 #include "grid.h"
-
+using namespace std;
 // Uncomment if running in Windows Console
 //#include "ansi_escapes.h"
 
 int main(int argc, char *argv[]) {
-    std::cout << "Conway's game of Life\n";
-    std::cout << "Press the return key to display each generation\n";
+    cout << "Conway's game of Life" << endl;
+    cout << "Press the return key to display each generation" << endl;
 
     // Wait for user to press the return key
-    std::cin.get();
+    cin.get();
 
     // Uncomment if running in Windows Console
     // Enable ANSI escape codes on Windows
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Move cursor to bottom of screen
-    std::cout << "\x1b[" << 0 << ";" << rowmax-1 <<"H";
+    cout << "\x1b[" << 0 << ";" << rowmax-1 <<"H";
 
     // Uncomment if running in Windows Console
     // Restore console on Windows
