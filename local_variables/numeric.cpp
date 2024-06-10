@@ -1,7 +1,12 @@
 #include <iostream>
 #include <cstdint>
+#include <string>
 
 using namespace std;
+
+void print(char *str) {
+    cout << str << endl;
+}
 
 int main() {
     cout << "char : " << sizeof(char) << endl;
@@ -33,4 +38,15 @@ int main() {
 
     int binary = 0b101010;
     cout << "Binary : " << binary << endl;
+
+    string url = R"(<a href="file">C:\Program files\</a>\n)";
+    cout << url << endl;
+
+     int c = 'A';
+     cout << c << endl;
+     cout << (char)c << endl;
+
+     const char *msg = "Hello world!";
+     print((char *)msg);
+     print(const_cast<char *>(msg));
 }
