@@ -46,12 +46,18 @@ int main() {
     cout << stra << endl;
 
     for(auto& st : stra) {
-        st = 'H';
+        // st = 'H';
         cout << st ;
     }
     cout << endl;
     cout << stra << endl;
 
     cout << endl;
+
+    cout << "Number of Elements : " << stra.end() - stra.begin() << endl;
+    cout << "Number of Elements : " << distance(stra.begin(), stra.end()) << endl;
+    auto last_elem = stra.end() - 1;
+    cout << "Last element : " << *last_elem << endl;
+    cout << "Middle element : " << *(stra.begin() + (stra.end()-stra.begin())/2) << endl;
 
 }
