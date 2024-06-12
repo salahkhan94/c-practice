@@ -17,4 +17,41 @@ int main() {
     for(string::iterator it = stra.begin(); it != stra.end(); it++) {
         cout << *it << ", ";
     }
+    cout << endl;
+
+    
+    for(string::const_iterator citr = stra.cbegin(); citr != stra.cend(); ++citr) {
+        cout << *citr << ", ";
+    }
+    cout << endl;
+    cout << "Reverse iterator" << endl;
+
+    for(string::reverse_iterator ritr = stra.rbegin(); ritr != stra.rend(); ritr++) {
+        cout << *ritr << ", ";
+    }
+    cout << endl;
+
+    cout << "Reverse const iterator" << endl;
+
+    for(string::const_reverse_iterator ritr = stra.crbegin(); ritr != stra.crend(); ritr++) {
+        cout << *ritr << ", ";
+    }
+    cout << endl;
+
+    for(auto st : stra) {
+        st = 'H';
+        cout << st ;
+    }
+    cout << endl;
+    cout << stra << endl;
+
+    for(auto& st : stra) {
+        st = 'H';
+        cout << st ;
+    }
+    cout << endl;
+    cout << stra << endl;
+
+    cout << endl;
+
 }
