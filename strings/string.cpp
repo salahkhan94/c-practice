@@ -6,6 +6,9 @@ using namespace std;
 int main() {
     string str{"Hello World"};
 
+    string url = R"(<a href="file">C:\Program files\</a>\n)";
+    cout << url << endl;
+
     str[1] = 'o';
     auto s1 = str.substr(6);
     auto s2 = str.substr(6, 2);
@@ -19,4 +22,10 @@ int main() {
 
     cout << hello << endl;
     cout << hello2 << endl;
+
+    size_t pos = str.find("or");
+
+    if(pos != string::npos) {
+        cout << pos << endl;
+    }
 }
