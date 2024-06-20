@@ -4,6 +4,15 @@
 
 using namespace std;
 
+string exclaim(string str) {
+    for(auto &c : str) {
+        if(ispunct(c)) {
+            c = '!';
+        }
+    }
+    return str;
+}
+
 int main() {
     string str{"Hello World"};
 
@@ -88,4 +97,7 @@ int main() {
             cout << c << " is a punctuation character" << endl;
     }
 
+    string str5 = "To be, or not to be, that is the question:";
+    cout << str5 << endl;
+    cout << exclaim(str5) << endl;
 }
