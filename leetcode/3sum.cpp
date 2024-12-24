@@ -21,7 +21,7 @@ public:
                 cursum = nums[left] + nums[right];
 
                 if (cursum < target) left++; 
-                else if (cursum > target) right++;
+                else if (cursum > target) right--;
                 else {
                     vector<int> triplet{nums[i], nums[left], nums[right]};
                     result.push_back(triplet);
