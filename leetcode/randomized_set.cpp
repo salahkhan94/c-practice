@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <unordered_map>
 #include <cstdlib>
+using namespace std;
+
 
 class RandomizedSet {
 private:
@@ -40,10 +42,38 @@ public:
     }
 };
 
-/**
- * Your RandomizedSet object will be instantiated and called as such:
- * RandomizedSet* obj = new RandomizedSet();
- * bool param_1 = obj->insert(val);
- * bool param_2 = obj->remove(val);
- * int param_3 = obj->getRandom();
- */
+
+class RandomizedSet {
+private:
+    vector<int> data;
+    unordered_map<int, int> data_map;
+    
+public:
+    RandomizedSet() {
+        
+    }
+    
+    bool insert(int val) {
+        if (data_map.find(val) != data_map.end()) {
+            return false;
+        }
+        data.push_back(val);
+        data_map[val] = data.size()-1;
+    }
+    
+    bool remove(int val) {
+        if (data_map.find(val) == data_map.end()) {
+            return false;
+        }
+        int idx = data_map[val];
+        data[idx] = data[data.size()-1];
+        data_map[data[idx]] = idx;
+        data.pop_back();
+        data_map.erase(val);
+    }
+    
+    int getRandom() {
+        int r_idx = rand() % data.size();
+        return data[r_idx];
+    }
+};

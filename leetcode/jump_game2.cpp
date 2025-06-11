@@ -28,7 +28,7 @@ public:
         int maxreach = 0;
         for (int i = 0; i < nums.size(); i++) {
             maxreach = max(maxreach, nums[i] + i);
-            if (i > currentend) {
+            if (i == currentend) {
                 currentend = maxreach;
                 jumps++;
             }
