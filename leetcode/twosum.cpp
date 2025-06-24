@@ -35,3 +35,18 @@ public:
         return {left+1, right+1};
     }
 };
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int l = 0;
+        int r = numbers.size()-1;
+        int cursum = numbers[l] + numbers[r];
+        while (cursum != target) {
+            cursum = numbers[l] + numbers[r];
+            if (cursum > target) r--;
+            else if (cursum < target) l++;
+        }
+        return {l+1, r+1};
+    }
+};
