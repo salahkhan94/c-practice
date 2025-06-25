@@ -54,3 +54,22 @@ public:
 
     }
 };
+
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_set<char> s_set;
+        int max_length = 1;
+        int left = 0;
+        for (int right = 0; right < s.size(); right++) {
+            while(s_set.find(s[right]) != s_set.end()) {
+                s_set.erase(s[left]);
+                left++;
+            }
+            s_set.insert(s[right]);
+            max_length = max(max_length, right - left + 1);
+        }
+        return max_length;
+    }
+};
