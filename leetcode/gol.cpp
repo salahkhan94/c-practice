@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
 public:
-    void gameOfLife(vector<vector<int>>& board) {
+    void gameOfLife(vector<vector<int>>& board) { 
         int m = board.size();
         int n = board[0].size();
         vector<vector<int>> nextboard(m, vector<int>(n, 0));
@@ -35,5 +35,38 @@ public:
                 board[i][j] = nextboard[i][j];
             }
         }
+    }
+};
+
+class Solution {
+public:
+    void gameOfLife(vector<vector<int>>& board) { 
+        int m = board.size();
+        int n = board[0].size();
+        vector<vector<int>> nextboard(m, vector<int>(n, 0));
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int live_neighbours = 0;
+                for(int k = i-1; k < i+2; k++) {
+                    for (int o = j-1; o < j+2; o++) {
+                        if (k == i && o == j) continue;
+                        if (k >= 0 && k < m && o >= 0 && o < n) {
+                            live_neighbours += board[k][o];
+                        }
+                    }
+                }
+                if (board[i][j] == 1) {
+                    if (live_neighbours < 2) nextboard[i][j] = 0;
+                    else if (live_neighbours > 1 && live_neighbours < 4) nextboard[i][j] = 1;
+                    else if (live_neighbours > 3) nextboard[i][j] = 0;
+                }
+                else {
+                    if(live_neighbours == 3) nextboard[i][j] = 1;
+                }
+            }
+        }
+
+        board = nextboard;
     }
 };
