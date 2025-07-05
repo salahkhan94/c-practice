@@ -51,3 +51,29 @@ public:
         return stck.empty();
     }
 };
+
+class Solution {
+public:
+    bool isValid(string s) {
+        unordered_map<char, char> bracket_map = {
+            {')', '('}, 
+            {']', '['}, 
+            {'}', '{'} 
+        };
+
+        stack<char> stck;
+
+        for (char &ch : s) {
+            if (ch == '(' || ch == '[' || ch == '{') {
+                stck.push(ch);
+            }
+            else {
+                if (stck.empty() || stck.top() != bracket_map[ch]) {
+                    return false;
+                }
+                stck.pop();
+            }
+        }
+        return true;
+    }
+};
