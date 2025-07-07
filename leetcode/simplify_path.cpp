@@ -33,34 +33,39 @@ public:
     }
 };
 
+// Doesn't work : 
 
-class Solution {
-public:
-    string simplifyPath(string path) {
-        stringstream ss(path);
-        string token;
-        stack<string> unix_path_stack;
 
-        while(getline(ss, token, '/')) {
-            if(!token.empty()) {
-                unix_path_stack.push(token);
-            }
-        }
 
-        string simplified_path = "";
-        while(!unix_path_stack.empty()) {
-            string temp = unix_path_stack.top();
-            if (temp == ".") {
-                unix_path_stack.pop();
-            }
-            else if (temp == "..") {
-                unix_path_stack.pop();
-                unix_path_stack.pop();
-            }
-            else {
-                simplified_path = "/" + temp + simplified_path; 
-            }
-        }
-        return simplified_path;
-    }
-};
+// class Solution {
+// public:
+//     string simplifyPath(string path) {
+//         stringstream ss(path);
+//         string token;
+//         stack<string> unix_path_stack;
+
+//         while(getline(ss, token, '/')) {
+//             if(!token.empty()) {
+//                 unix_path_stack.push(token);
+//             }
+//         }
+
+//         string simplified_path = "";
+//         while(!unix_path_stack.empty()) {
+//             string temp = unix_path_stack.top();
+//             if (temp == ".") {
+//                 unix_path_stack.pop();
+//             }
+//             else if (temp == "..") {
+//                 unix_path_stack.pop();
+//                 if (!unix_path_stack.empty())
+//                     unix_path_stack.pop();
+//             }
+//             else {
+//                 simplified_path = "/" + temp + simplified_path; 
+//                 unix_path_stack.pop();
+//             }
+//         }
+//         return simplified_path;
+//     }
+// };
