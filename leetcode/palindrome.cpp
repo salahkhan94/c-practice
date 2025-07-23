@@ -104,3 +104,37 @@ public:
 
     }
 };
+
+bool isAlphnum(char c) {
+    if ((c >= 'A' && c <='Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) return true;
+    
+    return false;
+}
+
+char toLowercase(char c) {
+    if ((c >= 'A' && c <='Z')) {
+        c = c + 32;
+    }
+    return c;
+}
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string pal;
+        pal.reserve(s.size());
+        for(char c : s) {
+            if (isAlphnum(c)) {
+                pal.push_back(toLowercase(c));
+            }
+        }
+
+        int i = 0;
+        int j = pal.size()-1;
+        while(i < j) {
+            if(pal[i++] != pal[j--]) return false;
+        }
+        return true;
+
+    }
+};
