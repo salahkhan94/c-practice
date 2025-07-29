@@ -108,12 +108,10 @@ public:
         dummy.next = head;
         ListNode* prev = &dummy;
 
-        // Step 1: Reach node before 'left'
         for (int i = 1; i < left; ++i) {
             prev = prev->next;
         }
 
-        // Step 2: Reverse from 'left' to 'right'
         ListNode* curr = prev->next;
         for (int i = 0; i < right - left; ++i) {
             ListNode* temp = curr->next;
