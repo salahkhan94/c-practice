@@ -1,5 +1,5 @@
 #include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
@@ -58,6 +58,5 @@ class Solution {
 class Solution {
     public:
         void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-            
         }
 };
