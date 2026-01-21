@@ -30,3 +30,17 @@ public:
         return false;
     }
 };
+
+
+class Solution {
+    public:
+        bool canJump(vector<int>& nums) {
+            int max_reach = nums[0];
+            for (int i = 0; i < nums.size(); i++) {
+                max_reach = max(max_reach, i + nums[i]);
+                if (i > max_reach) return false;
+                if (max_reach >= nums.size()-1) return true;
+            }
+            return false;
+        }
+};
