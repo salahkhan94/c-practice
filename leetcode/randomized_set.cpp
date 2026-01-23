@@ -77,3 +77,39 @@ public:
         return data[r_idx];
     }
 };
+
+class RandomizedSet {
+private:
+    vector<int> data;
+    unordered_map<int, int> data_map;
+public:
+    RandomizedSet() {
+        
+    }
+    
+    bool insert(int val) {
+        if (data_map.find(val)!= data_map.end()) {
+            return false;
+        }
+        data.push_back(val);
+        data_map[val] = data.size()-1;
+        return true;
+    }
+    
+    bool remove(int val) {
+        if (data_map.find(val)== data_map.end()) {
+            return false;
+        }
+        int idx = data_map[val];
+        data[idx] = data[data.size()-1];
+        data_map[data[idx]] = idx;
+        data_map.erase(val);
+        data.pop_back();
+        return true;
+    }
+    
+    int getRandom() {
+        int rand_idx = rand() % data.size();
+        return data[rand_idx];
+    }
+};
