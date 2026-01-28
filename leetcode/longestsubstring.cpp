@@ -73,3 +73,23 @@ public:
         return max_length;
     }
 };
+
+
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int max_length = 0;
+        int left = 0;
+        unordered_set<char> substring;
+        for (int right = 0; right < s.size(); right++) {
+            while(substring.find(s[right])!=substring.end()) {
+                substring.erase(s[left]);
+                left++;
+            }
+            substring.insert(s[right]);
+            max_length = max(max_length, right-left+1);
+        }
+        return max_length;
+    }
+};
