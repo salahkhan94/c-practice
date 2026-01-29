@@ -69,3 +69,10 @@ public:
 //         return simplified_path;
 //     }
 // };
+
+class Solution {
+public:
+    string simplifyPath(string path) {
+        
+    }
+};
