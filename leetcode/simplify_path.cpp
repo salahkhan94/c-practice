@@ -73,6 +73,29 @@ public:
 class Solution {
 public:
     string simplifyPath(string path) {
-        
+        stringstream ss(path);
+        string token;
+        stack<string> path_stack;
+
+        while(getline(ss, token, '/')) {
+            if (token.empty() || token == ".") continue;
+            else if(token == "..") {
+                if (!path_stack.empty()) {
+                    path_stack.pop();
+                }
+            }
+            else {
+                path_stack.push(token);
+            }
+        }
+        string simplified_path = "";
+        if (path_stack.empty()) simplified_path += "/";
+        while(!path_stack.empty()) {
+            string path_elem = path_stack.top();
+            simplified_path = path_elem + simplified_path;
+            path_stack.pop();
+            simplified_path = "/" + simplified_path; 
+        }
+        return simplified_path;
     }
 };
